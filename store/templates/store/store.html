@@ -1,0 +1,24 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<section class="container">
+	<section class="tiles row ">
+		{% for product in products %}
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<article class="style{{product.id}}">
+				<span class="image">
+					<img src="{{product.image.url}}" alt="" class="img-fluid" />
+				</span>
+				<a class="text-center-section">
+					<h2 class="text-white">{{product.name}}</h2>
+					<div class="consent">
+						<p>${{product.price}}</p>
+					</div>
+				</a>
+				<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart text-center my-5">Añade al 🛒</button>
+			</article>
+		</div>
+		{% endfor %}
+	</section>
+</section>
+{% endblock content %}
